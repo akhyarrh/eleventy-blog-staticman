@@ -17,6 +17,7 @@ exports.handler = (event, context, callback) => {
     origin: event.headers.origin,
     sites: {
       [repo]: {
+        allowedOrigins: ["https://akhyarrh.github.io","https://akhyar.js.org"],
         allowedFields: ["name", "email", "url", "message", "slug"],
         branch: "source",
         commitMessage: "Add comment by {fields.name} [skip ci]",
