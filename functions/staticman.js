@@ -30,6 +30,7 @@ exports.handler = (event, context, callback) => {
         moderation: true,
         path: "_data/comments",
         requiredFields: ["name", "message", "slug"],
+        email: { apiKey: process.env.EMAIL_API_KEY }
       },
     },
   };
