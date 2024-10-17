@@ -18,16 +18,16 @@ exports.handler = (event, context, callback) => {
     sites: {
       [repo]: {
         allowedFields: ["name", "message", "post"],
-        branch: "master",
+        branch: "source",
         commitMessage: "Add comment by {fields.name}",
         filename: "entry{@timestamp}",
-        format: "json",
+        format: "yaml",
         generatedFields: {
           date: {
             type: "date",
           },
         },
-        moderation: false,
+        moderation: true,
         path: "_data/comments",
         requiredFields: ["name", "message", "post"],
       },
