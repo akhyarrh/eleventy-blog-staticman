@@ -18,9 +18,9 @@ exports.handler = (event, context, callback) => {
     sites: {
       [repo]: {
         allowedOrigins: ["https://akhyarrh.github.io","https://akhyar.js.org"],
-        allowedFields: ["name", "email", "url", "message", "slug"],
+        allowedFields: ["name", "email", "url", "message"],
         branch: "source",
-        commitMessage: "Add comment by {fields.name} [skip ci]",
+        commitMessage: "Add comment by {fields.name} [skip netlify]",
         filename: "entry{@timestamp}",
         format: "yaml",
         generatedFields: {
@@ -30,7 +30,7 @@ exports.handler = (event, context, callback) => {
         },
         moderation: true,
         path: "_data/comments/{options.slug}",
-        requiredFields: ["name", "message", "slug"],
+        requiredFields: ["name", "message"],
         email: { apiKey: process.env.EMAIL_API_KEY }
       },
     },
