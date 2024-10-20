@@ -17,7 +17,7 @@ exports.handler = (event, context, callback) => {
     origin: event.headers.origin,
     sites: {
       [repo]: {
-        allowedOrigins: ["https://akhyarrh.github.io","https://akhyar.js.org"],
+        allowedOrigins: process.env.ALLOWED_ORIGINS.split(","),
         allowedFields: ["name", "email", "url", "message"],
         branch: "source",
         commitMessage: "Add comment by {fields.name} [skip netlify]",
@@ -29,7 +29,7 @@ exports.handler = (event, context, callback) => {
           },
         },
         moderation: true,
-        path: "_data/comments/{options.slug}",
+        path: process.env.COMMENTS_PATH,
         requiredFields: ["name", "message"],
         email: { apiKey: process.env.EMAIL_API_KEY }
       },
