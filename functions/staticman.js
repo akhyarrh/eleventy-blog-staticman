@@ -19,7 +19,7 @@ exports.handler = (event, context, callback) => {
       [repo]: {
         allowedOrigins: process.env.ALLOWED_ORIGINS.split(","),
         allowedFields: ["name", "email", "url", "message"],
-        branch: "comments",
+        branch: "source",
         commitMessage: "Add comment by {fields.name} [skip netlify]",
         filename: "entry{@timestamp}",
         format: "yaml",
@@ -28,7 +28,7 @@ exports.handler = (event, context, callback) => {
             type: "date",
           },
         },
-        moderation: false,
+        moderation: true,
         path: process.env.COMMENTS_PATH,
         requiredFields: ["name", "message"]
       },
