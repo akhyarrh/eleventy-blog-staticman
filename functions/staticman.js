@@ -28,7 +28,7 @@ exports.handler = (event, context, callback) => {
             type: "date",
           },
         },
-        moderation: true,
+        moderation: false,
         path: process.env.COMMENTS_PATH,
         requiredFields: ["name", "message"]
       },
