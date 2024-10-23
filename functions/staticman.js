@@ -18,7 +18,7 @@ exports.handler = (event, context, callback) => {
     sites: {
       [repo]: {
         allowedOrigins: process.env.ALLOWED_ORIGINS.split(","),
-        allowedFields: process.env.ALLOWED_FIELDS.split(","),
+        allowedFields: ["name", "url", "email", "message"],
         branch: process.env.SITE_BRANCH,
         commitMessage: "Add comment by {fields.name} [skip ci] [skip netlify]",
         filename: "entry{@timestamp}",
