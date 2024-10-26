@@ -28,6 +28,9 @@ exports.handler = (event, context, callback) => {
             type: "date",
           },
         },
+        akismet: {
+          enabled: true
+        },
         moderation: false,
         path: process.env.COMMENTS_PATH,
         requiredFields: ["name", "message"]
