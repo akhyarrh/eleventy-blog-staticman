@@ -20,9 +20,9 @@ exports.handler = (event, context, callback) => {
         allowedOrigins: process.env.ALLOWED_ORIGINS.split(","),
         allowedFields: ["name", "url", "email", "message"],
         branch: process.env.SITE_BRANCH,
-        commitMessage: "Add comment by {fields.name} [skip ci] [skip netlify]",
+        commitMessage: "Add comment by {fields.name}",
         filename: "entry{@timestamp}",
-        format: "yaml",
+        format: "json",
         generatedFields: {
           date: {
             type: "date",
@@ -33,7 +33,7 @@ exports.handler = (event, context, callback) => {
         },
         moderation: false,
         path: process.env.COMMENTS_PATH,
-        requiredFields: ["name", "message"]
+        requiredFields: ["message"]
       },
     },
   };
